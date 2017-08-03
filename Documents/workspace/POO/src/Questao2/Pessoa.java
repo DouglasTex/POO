@@ -4,7 +4,7 @@ public class Pessoa {
 	
 	private String nome;
 	private int idade;
-	private int altura;
+	private int altura; //centimetros
 	private double peso;
 	private String sexo;
 	
@@ -14,6 +14,10 @@ public class Pessoa {
 		this.altura = altura;
 		this.peso = peso;
 		this.sexo = sexo;
+	}
+	
+	public double calculaIMC(){
+		return peso/altura*altura;
 	}
 	
 	public String getNome() {
@@ -58,11 +62,18 @@ public class Pessoa {
 
 	@Override
 	public String toString() {
-		return "Nome: " + nome +
-				"Idade: " + idade +
-				"Altura: " + altura +
-				"Peso: " + peso +
-				"Sexo: " + sexo;
+		String a = "Nome: "+ nome + "/n"; 
+		if (calculaIMC() <= 18.5) {
+			a += "Abaixo do peso da média";
+		} else if (calculaIMC() <= 25) {
+			a += "Peso normal";
+		} else if (calculaIMC() <= 30) {
+			a += "Acima da do pso normal";
+		} else {
+			a += "Obesidade";
+		} 
+		
+		return a;
 	}
 	
 	
