@@ -1,32 +1,50 @@
 package Questao4;
 
-import java.util.List;
-
 public class Bits {
 	
-	List[] listBits;
+	private boolean [] listBits;
 	
 	public Bits(int tamanho) {
-		this.listBits = new List [tamanho];
+		this.listBits = new boolean [tamanho];
 	}
 
-	
-	
-	public Integer getBit() {
+	public Bits and (Bits a) throws TamDiException{
+		if (listBits.length != a.getBits().length) {
+			throw new TamDiException();
+		}
 		
-		return null;
+		Bits res = new Bits(listBits.length);
+		
+		for (int i = 0; i < listBits.length; i++) {
+			res.getBits()[i] = listBits[i] && a.getBits()[i];
+		}
+		
+		return res;
 	}
 	
-	@Override
-	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+	public boolean[] getBits() {
+		return listBits;
+	}
+	
+	
+	public boolean equals(Bits lista) {
+		boolean saida = true;
+		for (int i = 0; i < listBits.length; i++) {
+			if (listBits[i] != lista.getBits()[i]) {
+				saida = false;
+			}
+		}
+		return saida;
 	}
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		String saida = "";
+		for (int i = 0; i < listBits.length; i++) {
+			saida += listBits[i] + " ";
+			
+		}
+		return saida;
 	}
 	
 }
