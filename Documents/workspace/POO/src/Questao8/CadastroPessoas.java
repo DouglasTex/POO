@@ -6,7 +6,7 @@ public class CadastroPessoas {
 
 	List<Pessoa> pessoas;
 	
-	public void cadastraPessoa() {
+	public void cadastraPessoa(Pessoa p) {
 		// TODO Auto-generated method stub
 
 	}

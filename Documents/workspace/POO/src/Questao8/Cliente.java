@@ -1,17 +1,19 @@
 package Questao8;
 
 public class Cliente extends Pessoa {
+	private int codigo;
 	
 	public Cliente(int codigo, String nome, Data nascimento) {
-		super(codigo, nome, nascimento);
+		super(nome, nascimento);
+		this.codigo = codigo;
 		
 	}
 
-
 	@Override
 	public String imprimeDados() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Código: "+codigo+"\n"+
+				"Nome "+nome+"\n"+
+				"Nascimento: "+nascimento.getDia()+"/"+nascimento.getMes()+"/"+nascimento.getAno();
 	}
 
 }
